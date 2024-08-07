@@ -15,7 +15,6 @@ class Solution {
                 findCombinations(i+1, end, k, path, result);
             }
             path.removeLast();
-            System.out.println();
         }
     }
 
