@@ -1,0 +1,30 @@
+name: Move LeetCode Solution Folders
+
+on:
+  push:
+    paths:
+      - '00*-*'
+
+jobs:
+  move-folders:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Move solution folders to test directory
+        run: |
+          mkdir -p test
+          for dir in 00*-*/; do
+            if [ -d "$dir" ]; then
+              mv "$dir" test/
+            fi
+          done
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Move LeetCode solution folders to test directory"
+          git push
