@@ -3,7 +3,7 @@ name: Move LeetCode Solution Folders
 on:
   push:
     paths:
-      - '00*-*'
+      - '00*-*/**'  # 특정 패턴의 폴더 내 파일이 푸시될 때 트리거
 
 jobs:
   move-folders:
@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: List directory contents before moving
+        run: |
+          echo "Before moving:"
+          ls -R
 
       - name: Move solution folders to test directory
         run: |
@@ -21,10 +26,15 @@ jobs:
             fi
           done
 
+      - name: List directory contents after moving
+        run: |
+          echo "After moving:"
+          ls -R test
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add .
           git commit -m "Move LeetCode solution folders to test directory"
-          git push
+          git push || echo "No changes to commit"
