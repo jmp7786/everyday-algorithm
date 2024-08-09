@@ -14,7 +14,6 @@ class Solution {
                 sb.append(path.get(i));
             }
             result.add(sb.toString());
-            
         }
 
         if (left < n) {
