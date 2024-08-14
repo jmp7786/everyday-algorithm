@@ -39,7 +39,6 @@ class Node {
 */
 
 class Solution {
-    // Returns true if all the values in the matrix are the same; otherwise, false.
     boolean sameValue(int[][] grid, int x1, int y1, int length) {
         for (int i = x1; i < x1 + length; i++) {
             for (int j = y1; j < y1 + length; j++)
@@ -50,13 +49,11 @@ class Solution {
     }
 
     Node solve(int[][] grid, int x1, int y1, int length) {
-        // Return a leaf node if all values are the same.
         if (sameValue(grid, x1, y1, length)) {
             return new Node(grid[x1][y1] == 1, true);
         } else {
-            Node root = new Node(false, false);
+            Node root = new Node(true, false);
 
-            // Recursive call for the four sub-matrices.
             root.topLeft = solve(grid, x1, y1, length / 2);
             root.topRight = solve(grid, x1, y1 + length / 2, length / 2);
             root.bottomLeft = solve(grid, x1 + length / 2, y1, length / 2);
