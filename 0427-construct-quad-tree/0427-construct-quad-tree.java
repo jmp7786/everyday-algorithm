@@ -52,7 +52,7 @@ class Solution {
         if (sameValue(grid, x1, y1, length)) {
             return new Node(grid[x1][y1] == 1, true);
         } else {
-            Node root = new Node(true, false);
+            Node root = new Node(false, false);
 
             root.topLeft = solve(grid, x1, y1, length / 2);
             root.topRight = solve(grid, x1, y1 + length / 2, length / 2);
