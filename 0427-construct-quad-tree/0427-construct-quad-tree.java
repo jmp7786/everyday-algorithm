@@ -39,27 +39,30 @@ class Node {
 */
 
 class Solution {
-    boolean sameValue(int[][] grid, int x1, int y1, int length) {
-        for (int i = x1; i < x1 + length; i++) {
-            for (int j = y1; j < y1 + length; j++)
-                if (grid[i][j] != grid[x1][y1])
+    private boolean isLeaf(int[][] grid, int x1, int y1, int length) {
+        int baseNum = grid[x1][y1];
+        for (int i=0; i < length; i++) {
+            for (int j=0; j < length; j++) {
+                if(grid[i + x1][j + y1] !=  baseNum) {
                     return false;
+                }
+            }   
         }
         return true;
     }
-
-    Node solve(int[][] grid, int x1, int y1, int length) {
-        if (sameValue(grid, x1, y1, length)) {
+    private Node solve(int[][] grid, int x1, int y1, int length) {
+        if(isLeaf(grid, x1, y1, length)) {
+            System.out.println(grid[x1][y1]);
             return new Node(grid[x1][y1] == 1, true);
         } else {
-            Node root = new Node(false, false);
+            Node node = new Node(false, false);
+    
+        node.topLeft = solve(grid, x1, y1, length/2);
+        node.topRight = solve(grid, x1 , y1 + length / 2, length/2);
+        node. bottomLeft = solve(grid, x1 + length / 2, y1, length/2);
+        node. bottomRight = solve(grid, x1 + length / 2, y1 + length / 2, length/2);
 
-            root.topLeft = solve(grid, x1, y1, length / 2);
-            root.topRight = solve(grid, x1, y1 + length / 2, length / 2);
-            root.bottomLeft = solve(grid, x1 + length / 2, y1, length / 2);
-            root.bottomRight = solve(grid, x1 + length / 2, y1 + length / 2, length / 2);
-
-            return root;
+            return node;
         }
     }
 
