@@ -6,13 +6,16 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 |  |
 | ------- |
+| [0063-unique-paths-ii](https://github.com/jmp7786/everyday-algorithm/tree/master/0063-unique-paths-ii) |
 | [0221-maximal-square](https://github.com/jmp7786/everyday-algorithm/tree/master/0221-maximal-square) |
 ## Dynamic Programming
 |  |
 | ------- |
+| [0063-unique-paths-ii](https://github.com/jmp7786/everyday-algorithm/tree/master/0063-unique-paths-ii) |
 | [0221-maximal-square](https://github.com/jmp7786/everyday-algorithm/tree/master/0221-maximal-square) |
 ## Matrix
 |  |
 | ------- |
+| [0063-unique-paths-ii](https://github.com/jmp7786/everyday-algorithm/tree/master/0063-unique-paths-ii) |
 | [0221-maximal-square](https://github.com/jmp7786/everyday-algorithm/tree/master/0221-maximal-square) |
 <!---LeetCode Topics End-->
