@@ -4,7 +4,6 @@ class Solution:
         n = len(coins)
         for i in range(n+1): 
             dp[i][0] = 0
-        # print(dp)
         for i in range(1, amount+1): 
             minumum = float('inf')
             for j in range(len(coins)): 
@@ -14,11 +13,5 @@ class Solution:
                     minumum = min(minumum, dp[j][i])
                 
             dp[n][i] = minumum
-        # print(dp)
-        return dp[n][amount] if dp[n][amount] != float('inf') else -1
-[
-    [0, 1, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf], 
-    [0, inf, 1, inf, inf, inf, inf, inf, inf, inf, inf, inf], 
-    [0, inf, inf, inf, inf, 1, inf, inf, inf, inf, inf, inf], 
-    [0, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf]]
 
+        return dp[n][amount] if dp[n][amount] != float('inf') else -1
