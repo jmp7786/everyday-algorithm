@@ -7,11 +7,11 @@ class Solution:
 
         n = len(nums)
         left, right = 0, len(nums)-1
-        # maximum = 0
+        maximum = 0
         while left <= right: 
             mid = left + (right - left) // 2 
-            # if nums[mid] > nums[maximum]: 
-            #     maximum = mid
+            if nums[mid] > nums[maximum]: 
+                maximum = mid
             if mid > 0 and mid < n -1 and nums[mid-1] < nums[mid] > nums[mid+1]: 
                 return mid
             
@@ -20,5 +20,5 @@ class Solution:
             else: 
                 left = mid +1
         
-        return -1
+        return maximum
                 
