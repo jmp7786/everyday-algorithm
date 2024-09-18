@@ -8,7 +8,6 @@ class Solution:
             mid = left + (right -left) // 2 
             
             curr = matrix[mid//m][mid%m]
-            print(curr, mid, mid//m, mid%m)
             if curr == target: 
                 return True
             if curr < target: 
