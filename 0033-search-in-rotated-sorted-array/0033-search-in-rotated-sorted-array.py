@@ -27,7 +27,7 @@ class Solution:
         n = len(nums)
         while left <= right: 
             mid = left + (right - left) // 2
-            print(mid, mid%n)
+            # print(mid, mid%n)
             if nums[mid%n] == target: 
                 ans = mid%n
                 break
@@ -36,7 +36,7 @@ class Solution:
                 right = mid-1
             else:
                 left = mid+1
-        print(minimum_idx, ans)
+        # print(minimum_idx, ans)
         return ans
 
 
