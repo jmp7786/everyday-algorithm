@@ -3,14 +3,13 @@ class Solution:
         if len(nums) ==1: 
             return nums[0]
 
-        
         if nums[-1] > nums[0]: 
             return nums[0]
 
         left, right = 0, len(nums)-1
         while left <= right: 
             mid = left + (right - left) // 2
-            print(mid, left, right)
+            # print(mid, left, right)
             # print(mid, nums[left], nums[right])
             if mid > 0 and nums[mid-1] > nums[mid]: 
                 return nums[mid]
@@ -21,5 +20,5 @@ class Solution:
                 right = mid-1
             else: 
                 left = mid+1
-        print(left, right)
+        # print(left, right)
         return -1
