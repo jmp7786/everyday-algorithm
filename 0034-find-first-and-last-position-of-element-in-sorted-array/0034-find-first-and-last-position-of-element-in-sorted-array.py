@@ -2,11 +2,11 @@ class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         if len(nums) == 0: 
             return [-1, -1]
-        if len(nums) == 1: 
-            if nums[0] == target: 
-                return [0,0]
-            else: 
-                return [-1, -1]
+        # if len(nums) == 1: 
+        #     if nums[0] == target: 
+        #         return [0,0]
+        #     else: 
+        #         return [-1, -1]
 
         ans_left = ans_right = -1 
 
@@ -18,10 +18,10 @@ class Solution:
             right = len(nums)-1
             while left <= right: 
                 mid = left + (right - left) // 2 
-                print(mid)
+                # print(mid)
                 if nums[mid] == target and mid > 0 and  nums[mid-1] < nums[mid]: 
                     ans_left = mid
-                    print(mid, left, right)
+                    # print(mid, left, right)
                     break
                 if nums[mid] >= target: 
                     right = mid -1
