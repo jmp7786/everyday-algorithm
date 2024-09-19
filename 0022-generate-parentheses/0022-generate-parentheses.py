@@ -5,7 +5,7 @@ class Solution:
         return result
     
     def build(self, on, off, string, result): 
-        if on < -1 or off < -1:
+        if on < 0 or off < 0:
             return 
         if on == 0 and off == 0 : 
             result.append(string)
