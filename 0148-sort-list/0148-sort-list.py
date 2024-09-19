@@ -23,20 +23,16 @@ class Solution:
         right = self.merge_sort(slow)
         return self.merge(left, right)
     
-    def merge(self, left, right): 
-        head = ListNode()
-        tmp = head
-        while left and right: 
-            if left.val <= right.val:
-                tmp.next =  left
-                left = left.next
-            else: 
-                tmp.next = right
-                right = right.next
-            tmp = tmp.next
+    def merge(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        if not l1: return l2
+        if not l2: return l1
         
-        tmp.next = left if left else right
-        return head.next
+        if l1.val < l2.val:
+            l1.next = self.merge(l1.next, l2)
+            return l1
+        else:
+            l2.next = self.merge(l1, l2.next)
+            return l2
     
 
     
