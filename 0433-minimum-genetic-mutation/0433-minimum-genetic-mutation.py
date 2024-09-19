@@ -6,7 +6,7 @@ class Solution:
         return min(result)if result else -1
 
     def find(self, curr, level, visited, result, bank, endGene): 
-        print(1, curr, endGene, curr == endGene)
+        # print(1, curr, endGene, curr == endGene)
         if curr == endGene: 
             result.append(level)
             return 
@@ -23,7 +23,7 @@ class Solution:
         for i in range(len(str1)): 
             if str1[i] != str2[i]: 
                 count += 1 
-        print(str1, str2, count == 1)
+        # print(str1, str2, count == 1)
         return count == 1
 
         
