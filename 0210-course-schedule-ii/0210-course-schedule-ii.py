@@ -18,8 +18,6 @@ class Solution:
         
         zero_q = [k for k, v in indegree.items() if v == 0]
 
-        
-
         result = []
         for i in range(numCourses): 
             if i not in indegree: 
@@ -32,17 +30,14 @@ class Solution:
             if n in result: 
                 return []
             result.append(n)
-            
-            # visited.add(n)
-            # print(result, n, graph)
+
             if n in graph: 
                 for to in graph[n]: 
-                    # print('to', to)
+
                     indegree[to] -= 1
-                    # graph[n].remove(to)
+
                     if indegree[to] <= 0: 
                         zero_q.append(to)
-            # else: 
-            #     return []
+            
         
         return result if len(result) == numCourses else []
