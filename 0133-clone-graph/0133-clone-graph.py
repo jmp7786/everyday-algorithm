@@ -8,8 +8,7 @@ class Node:
 
 from typing import Optional
 class Solution:
-    def __init__(self): 
-        self.visited = {}
+    visited = {}
     
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         
