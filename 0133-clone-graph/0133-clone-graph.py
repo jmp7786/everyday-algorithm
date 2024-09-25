@@ -8,13 +8,13 @@ class Node:
 
 from typing import Optional
 class Solution:
-    visited = {}
+    def __init__(self): 
+        self.visited = {}
     
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         
         if not node: 
             return node
-        print(node.val)
         if node.val in self.visited: 
             return self.visited[node.val]
         
