@@ -25,7 +25,7 @@ class Solution:
                 # print('self.last_right2',self.last_right)
                 
 
-            print(node)
+            # print(node)
             return node
         
         preorder(root)
