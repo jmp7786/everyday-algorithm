@@ -15,8 +15,6 @@ class Solution:
         origin_memo = []
         memo = []
         node_map = {}
-        node_set = set()
-        prev = None
         curr = head
         while curr: 
             node = Node(curr.val)
@@ -30,15 +28,6 @@ class Solution:
             curr = curr.next
 
         curr = head
-        # while curr: 
-        #     node = Node(curr.val)
-        #     if curr.random:
-        #         node.random = curr.random
-        #         if curr.random not in node_map.keys(): 
-        #             node_map[curr.random].append[node]
-
-        #     memo.append(node)
-        #     curr = curr.next
 
         x = [(k, v) for k, v in node_map.items()]
         print(x)
