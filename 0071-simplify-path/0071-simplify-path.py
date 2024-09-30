@@ -1,6 +1,5 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
-        # while path.replace('/./', '/'): 
         path = path.replace('/./', '/')
         path = path.replace('/./', '/')
         path = path.replace('//', '/')
@@ -11,8 +10,6 @@ class Solution:
                 new_paths.append(paths[i])
         paths = new_paths
 
-        print(paths)
-        print('/'.join(paths))
 
         for i in range(len(paths)): 
             if paths[i] == '..': 
@@ -22,7 +19,6 @@ class Solution:
                     idx -= 1
                 if idx-1 >= 0:
                     paths[idx-1] = '***'
-        print(paths)
         result_list = []        
         for i in range(len(paths)): 
             if paths[i] != '***' and paths[i] != '.':
