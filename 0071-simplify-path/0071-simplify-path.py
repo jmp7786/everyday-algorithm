@@ -1,27 +1,25 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
-        path = path.replace('/./', '/')
-        path = path.replace('//', '/')
-        paths = path.split('/')
-        new_paths = []
-        for i in range(len(paths)): 
-            if paths[i] != '': 
-                new_paths.append(paths[i])
-        paths = new_paths
 
+        stack = []
 
-        for i in range(len(paths)): 
-            if paths[i] == '..': 
-                paths[i] = '***'
-                idx = i
-                while idx -1 > 0 and (paths[idx-1] == '..' or paths[idx-1] == '***' or paths[idx-1] == '.'):
-                    idx -= 1
-                if idx-1 >= 0:
-                    paths[idx-1] = '***'
-        result_list = []        
-        for i in range(len(paths)): 
-            if paths[i] != '***' and paths[i] != '.':
-                result_list.append(paths[i])
-        if result_list and result_list[-1] == '': 
-            result_list.pop()
-        return '/' if not result_list else ('/' +'/'.join(result_list)).replace('//','/')
+        # Split the input string on "/" as the delimiter
+        # and process each portion one by one
+        for portion in path.split("/"):
+
+            # If the current component is a "..", then
+            # we pop an entry from the stack if it's non-empty
+            if portion == "..":
+                if stack:
+                    stack.pop()
+            elif portion == "." or not portion:
+                # A no-op for a "." or an empty string
+                continue
+            else:
+                # Finally, a legitimate directory name, so we add it
+                # to our stack
+                stack.append(portion)
+
+        # Stich together all the directory names together
+        final_str = "/" + "/".join(stack)
+        return final_str
