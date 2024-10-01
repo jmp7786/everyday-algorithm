@@ -9,11 +9,9 @@ class Solution:
             start, end = intervals[i]
 
             if new_end >= end and new_start <= end : 
-                print('new_start <= end', new_start,end)
                 candidates.append(i)
                 new_start = min(new_start, start)
             elif new_start <= start and new_end >= start:
-                print('new_end >= start', new_end , start)
                 candidates.append(i)
                 new_end = max(new_end, end)
             elif start<= new_start and new_end <=end: 
@@ -22,8 +20,7 @@ class Solution:
                 new_end = max(new_end, end)
         
         merged_interval = [new_start, new_end]
-        print('caididates', candidates)
-        print('new_merged_interval', merged_interval)
+
         new_intervals = []
         inserted = False
         for i in range(len(intervals)): 
