@@ -4,6 +4,7 @@ class Solution:
         k = None
         i = 0
         j = 0
+        
         while i < n: 
             t = nums[i]
             if k is None  or k != t : 
