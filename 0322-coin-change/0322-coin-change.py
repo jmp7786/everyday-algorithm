@@ -11,7 +11,7 @@ class Solution:
                     memo[n][i] += 1
             
             memo[n][len(coins)] = min(memo[n]) 
-        print(memo)
+        # print(memo)
         result = memo[-1][len(coins)]
         return  result if result != float('inf') else -1
         # return 1 
