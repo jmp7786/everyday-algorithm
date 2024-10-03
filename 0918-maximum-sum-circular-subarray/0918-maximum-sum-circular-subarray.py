@@ -8,20 +8,16 @@ class Solution:
             rights_amount += nums[i]
             rights[i] = max(rights_amount, rights[i+1])
         
-        # print(rights)
         result = float('-inf')
         curr = float('-inf')
         left_result = float('-inf')
         left_amount = 0
         for i in range(n): 
             curr = max(curr+ nums[i], nums[i])
-            # print('curr', curr)
             result = max(result, curr)
 
             left_amount += nums[i]
             if i < n-1: 
-                print('left_result', left_result, left_amount)
                 left_result = max(left_amount + rights[i+1], left_result)
 
-        # print(rights, result, left_result)
         return max(left_result, result)
