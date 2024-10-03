@@ -8,7 +8,7 @@ class Solution:
             rights_amount += nums[i]
             rights[i] = max(rights_amount, rights[i+1])
         
-        print(rights)
+        # print(rights)
         result = float('-inf')
         curr = float('-inf')
         left_result = float('-inf')
@@ -23,5 +23,5 @@ class Solution:
                 print('left_result', left_result, left_amount)
                 left_result = max(left_amount + rights[i+1], left_result)
 
-        print(rights, result, left_result)
+        # print(rights, result, left_result)
         return max(left_result, result)
