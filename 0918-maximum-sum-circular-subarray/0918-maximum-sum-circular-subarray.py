@@ -1,26 +1,27 @@
 class Solution:
     def maxSubarraySumCircular(self, nums: List[int]) -> int:
         n = len(nums)
-        right_maxs = [-1] * n
-        right_maxs[-1] = nums[-1]
-        suffix_sum = nums[-1]
-
-        for i in range( n-2 , -1, -1): 
-            suffix_sum += nums[i] 
-            right_maxs[i] = max(right_maxs[i+1], suffix_sum)
+        rights = [float('-inf')] * n
+        rights[-1] = nums[-1]
+        rights_amount = nums[-1]
+        for i in range(n-2, 0, -1):
+            rights_amount += nums[i]
+            rights[i] = max(rights_amount, rights[i+1])
         
-        curr_max = nums[0]
-        prefix_max = nums[0]
-        special_max = nums[0]
-        global_max =  nums[0]
-        print(right_maxs)
-        for i in range(1, n): 
-            curr_max = max(curr_max, 0) + nums[i]
-            global_max = max(global_max, curr_max)
+        print(rights)
+        result = float('-inf')
+        curr = float('-inf')
+        left_result = float('-inf')
+        left_amount = 0
+        for i in range(n): 
+            curr = max(curr+ nums[i], nums[i])
+            # print('curr', curr)
+            result = max(result, curr)
 
-            
-            if i < n-1:
-                special_max = max(special_max, prefix_max + right_maxs[i+1])
-            prefix_max += nums[i] 
-        return max(global_max, special_max)
+            left_amount += nums[i]
+            if i < n-1: 
+                print('left_result', left_result, left_amount)
+                left_result = max(left_amount + rights[i+1], left_result)
 
+        print(rights, result, left_result)
+        return max(left_result, result)
