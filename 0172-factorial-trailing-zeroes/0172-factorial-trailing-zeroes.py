@@ -3,9 +3,9 @@ class Solution:
         n = math.factorial(n)
         count = 0
         while n % 10 == 0:
-            print(count)
+            # print(count)
             n  = n // 10
-            print(n)
+            # print(n)
             count +=1
 
         
