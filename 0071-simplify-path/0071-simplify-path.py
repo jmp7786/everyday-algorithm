@@ -11,7 +11,6 @@ class Solution:
             elif s != '.' and s != '': 
                 res.append(s)
         
-        print(res)
         return '/' + '/'.join(res)
             
             
