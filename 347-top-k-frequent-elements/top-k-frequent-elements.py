@@ -1,28 +1,35 @@
-import heapq
 from collections import defaultdict
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        # 1. counting frequency for all num 
-        # 2. create a heap for
-        # 3. iterate map for insert to min heap 
-        # 4. pop k time for return values 
+        # lets make a buket sorting 
+        # 1. scatter this 
+        # 2. sort each buckets
+        # 3. gather all buckets
+        
         counter = defaultdict(int)
         for num in nums:
             counter[num] += 1
         
-        min_heap = []
-        for key, value in counter.items():
-            heapq.heappush(min_heap, (value, key))
-            if len(min_heap) > k:
-                heapq.heappop(min_heap)
-         
-        return [key for value, key in min_heap]
+        bucket = [None] * (len(nums) + 1)
+        for num, freq in counter.items():
+            if bucket[freq] is None:
+                bucket[freq] = list()
+            bucket[freq].append(num)
+        
+        result = []
+        limit = 0
+        for i in range(len(bucket) -1, -1, -1):
+            sub_list = bucket[i]
+            if sub_list is not None:
+                for num in sub_list:
+                    if limit < k:
+                        result.append(num)
+                        limit += 1
+                    else:
+                        break
             
-
-
+            if limit == k:
+                break
         
-
-         
-
-        
+        return result
