@@ -8,8 +8,8 @@ class Solution:
         # 3. iterate map for insert to min heap 
         # 4. pop k time for return values 
         counter = defaultdict(int)
-        for i in range(len(nums)):
-            counter[nums[i]] += 1
+        for num in nums:
+            counter[num] += 1
         
         min_heap = []
         for key, value in counter.items():
