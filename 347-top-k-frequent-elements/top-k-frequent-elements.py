@@ -16,7 +16,9 @@ class Solution:
         pivot_idx = random.randint(left, right)
         new_pivot_idx = self._partition(nums, freq_map, left, right, pivot_idx)
         
-        if new_pivot_idx > k_smallest:
+        if new_pivot_idx == k_smallest:
+            return
+        elif new_pivot_idx > k_smallest:
             self._quick_select(nums, freq_map, left, new_pivot_idx-1, k_smallest)
         else:
             self._quick_select(nums, freq_map, new_pivot_idx+1, right, k_smallest)
