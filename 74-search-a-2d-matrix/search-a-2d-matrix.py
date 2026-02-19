@@ -3,28 +3,19 @@ class Solution:
         if not matrix or not matrix[0]:
             return False
         
-        rows = len(matrix)
-        cols = len(matrix[0])
+        m, n = len(matrix), len(matrix[0])
+        left, right = 0, m * n - 1
         
-        low = 0
-        high = rows * cols - 1
-        
-        while low <= high:
-            mid = (low + high) // 2
+        while left <= right:
+            mid = (left + right) // 2
+            mid_val = matrix[mid // n][mid % n]
             
-            mid_value = matrix[mid // cols][mid % cols]
-
-
-
-
-            if mid_value == target:
+            if mid_val == target:
                 return True
-            elif mid_value < target:
-                low = mid + 1
+            elif mid_val < target:
+                left = mid + 1
             else:
-                high = mid - 1
+                right = mid - 1
                 
         return False
-
-
 
